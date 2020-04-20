@@ -96,6 +96,7 @@ a {
   top: 0;
   left: 0;
   padding: 20px;
+  z-index: 2;
 }
 
 .start .quote {
@@ -111,6 +112,7 @@ a {
   padding-bottom: 180px;
   pointer-events: all;
 }
+
 
 @keyframes fade-in { 
   100% { opacity: 1; }
@@ -145,18 +147,27 @@ a {
   }
 }
 
-.cube1,
-.cube2,
-.cube3,
-.cube4,
-.cube5,
-.cube6,
-.cube7,
-.cube8,
-.cube9,
-.cube10,
-.cube11 {
+@media (max-width: 700px) {
+  .god_protocol {
+    width: 30vw;
+  }
 
+  .quote, .link {
+    text-align: center;
+    font-size: 30px !important;
+  }
+
+  .cube img {
+    width: 20vw;
+  }
+  
+  .wallet {
+    font-size: 14px;
+  }
+
+  .link {
+    padding-top: 100px;
+  }
 }
 
 .saturn {
