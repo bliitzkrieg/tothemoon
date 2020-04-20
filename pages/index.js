@@ -23,7 +23,7 @@ function Index() {
   const [start, setStart] = useState(false);
   const wallet = "0xa2E15bC8F3885Ac768e17168d2c3E6415eF5565d";
 
-  const cubes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const cubes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const link = "https://chain.link/";
 
   const moon = () => {
@@ -53,11 +53,11 @@ function Index() {
               key={cube}
               className={`floater floater${cube}`}
               initial={{ 
-                y: -300 + (index % 2 ? 100 : 0),
+                y: -100 + (index % 2 ? 300 : 0),
                 x: -1500 * cube 
               }}
               animate={{ y: -200, x: 5000 }} 
-              transition={{ delay: 45, duration: 28 }}>
+              transition={{ delay: 45, duration: 45 }}>
                 <img src={`/${cube}.png`} alt="The God Protocol Cube" />
             </motion.div>
           )) }
