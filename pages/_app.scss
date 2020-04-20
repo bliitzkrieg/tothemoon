@@ -47,6 +47,16 @@ a {
   transition: opacity 1s linear;
 }
 
+.floater {
+  position: absolute;
+  opacity: 0.2;
+  margin: 0 50px;
+
+  img {
+    width: 10vw;
+  }
+}
+
 .start .ready_text,
 .start .god_protocol {
   opacity: 0;
@@ -209,10 +219,10 @@ a {
 }
 
 @keyframes animStar {
-  from {
+  0% {
     transform: translateY(0px);
   }
-  to {
+  100% {
     transform: translateY(-1000px);
   }
 }

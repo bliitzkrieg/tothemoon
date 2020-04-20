@@ -3,6 +3,9 @@ import Head from 'next/head'
 import {Howl, Howler} from 'howler';
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion"
+import { ReactMotionLoop } from 'react-motion-loop';
+import { spring } from 'react-motion';
+
 
 const ambient = new Howl({
   src: ['ambient.mp4'],
@@ -20,7 +23,7 @@ function Index() {
   const [start, setStart] = useState(false);
   const wallet = "0xa2E15bC8F3885Ac768e17168d2c3E6415eF5565d";
 
-  const cubes = [11];
+  const cubes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const link = "https://chain.link/";
 
   const moon = () => {
@@ -41,20 +44,37 @@ function Index() {
         <div className="moon_container" onClick={moon}>
           <img src='/chainlink.svg' alt="The God Protocol" className="god_protocol"/>
           <div className="ready_text">Start</div>
-          <div className="quote">It's happening tonight...</div>
-          <a href={link} className="link">{ link }</a>
-          <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
-            { start && cubes.map(cube => (
-              <motion.div
-                key={cube}
-                className={`cube cube${cube}`}
-                animate={{ y: -900 }} 
-                transition={{ delay: 17, duration: 28 }}>
+          { start && <div className="quote">It's happening tonight...</div> }
+          { start && <a href={link} className="link">{ link }</a> }
+
+          {/* { start && cubes.map(cube => (
+            <motion.div
+              key={cube}
+              className={`floater floater${cube}`}
+              initial={{ y: -200, x: 100 * cube }}
+              animate={{ y: -900, x: 50 * cube }} 
+              transition={{ delay: 2, duration: 28 }}>
                 <img src={`/${cube}.png`} alt="The God Protocol Cube" />
-                <div className="green-candle"></div>
-              </motion.div>
-            ))}
+            </motion.div>
+          )) } */}
+
+          
+          <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
+            <motion.div
+              className={`cube`}
+              animate={{ y: -900 }} 
+              transition={{ delay: 17, duration: 28 }}>
+
+              <ReactMotionLoop
+                styleFrom={{ rotate: spring(0) }}
+                styleTo={{ rotate: `${spring(180)}` }}>
+                {style => <img src={`/main.png`} alt="The God Protocol Cube" style={style} />}
+              </ReactMotionLoop>
+
+              <div className="green-candle"></div>
+            </motion.div>
           </motion.div>
+
           { start && 
             <motion.div className="wallet" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 30, duration: 20 }}>
               {wallet}
