@@ -80,13 +80,20 @@ a {
   display: flex;
 }
 
-.quote, .link {
+.quote, .together {
+  font-size: 80px;
+}
+
+.quote, .link, .together {
   pointer-events: none;
   opacity: 0;
   transition: opacity 1s linear;
-  font-size: 80px;
   position: absolute;
   color: white;
+}
+
+.link {
+  font-size: 60px;
 }
 
 .wallet {
@@ -105,7 +112,7 @@ a {
   animation-delay: 2000ms;
 }
 
-.start .link {
+.start .together {
   animation: fade-in 5s linear;
   animation-fill-mode: forwards;
   animation-delay: 60s;
@@ -113,6 +120,14 @@ a {
   pointer-events: all;
 }
 
+.start .link {
+  animation: fade-in 5s linear;
+  animation-fill-mode: forwards;
+  animation-delay: 65s;
+  padding-bottom: 180px;
+  pointer-events: all;
+  padding-top: 150px;
+}
 
 @keyframes fade-in { 
   100% { opacity: 1; }
@@ -147,18 +162,23 @@ a {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .god_protocol {
     width: 30vw;
   }
 
-  .quote, .link {
-    text-align: center;
+  .quote, 
+  .together {
     font-size: 30px !important;
   }
 
+  .quote, .link, .together {
+    text-align: center;
+  }
+
   .cube img {
-    width: 20vw;
+    width: 30vw;
+    height: 30vw;
   }
   
   .wallet {
@@ -166,11 +186,8 @@ a {
   }
 
   .link {
+    font-size: 20px !important;
     padding-top: 140px;
-  }
-
-  .saturn {
-    top: -100px;
   }
 }
 

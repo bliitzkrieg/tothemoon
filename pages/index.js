@@ -45,7 +45,8 @@ function Index() {
           <img src='/chainlink.svg' alt="The God Protocol" className="god_protocol"/>
           <div className="ready_text">Start</div>
           { start && <div className="quote">It's happening tonight...</div> }
-          { start && <a href={link} className="link">{ link }</a> }
+          { start && <div className="together">We are all in this together</div> }
+          { start && <a href={link} className="link">{link}</a> }
 
           {/* { start && cubes.map(cube => (
             <motion.div
@@ -57,7 +58,6 @@ function Index() {
                 <img src={`/${cube}.png`} alt="The God Protocol Cube" />
             </motion.div>
           )) } */}
-
           
           <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
             <motion.div
