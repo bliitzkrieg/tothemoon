@@ -63,7 +63,7 @@ function Index() {
             <motion.div
               className={`cube`}
               animate={{ y: -900 }} 
-              transition={{ delay: 17, duration: 28 }}>
+              transition={{ delay: 18, duration: 28 }}>
 
               <ReactMotionLoop
                 styleFrom={{ rotate: spring(0) }}
@@ -83,8 +83,8 @@ function Index() {
 
           { start && 
             <motion.img 
-              initial={{ x: 1000, y: -800 }} 
-              animate={{ x: 500, y: -320}} 
+              initial={{ x: 1000, y: -800, scale: 1.1 }} 
+              animate={{ x: 500, y: -320, scale: 0.4 }} 
               transition={{ delay: 30, duration: 20 }}
               className="saturn" 
               src="/saturn.png" 
