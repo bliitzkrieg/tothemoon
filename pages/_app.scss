@@ -119,7 +119,6 @@ a {
   animation-fill-mode: forwards;
   animation-delay: 60s;
   padding-bottom: 180px;
-  pointer-events: all;
 }
 
 .start .link {
@@ -127,7 +126,6 @@ a {
   animation-fill-mode: forwards;
   animation-delay: 65s;
   padding-bottom: 180px;
-  pointer-events: all;
   padding-top: 150px;
 }
 
@@ -212,7 +210,7 @@ a {
 
   .link {
     font-size: 20px !important;
-    padding-top: 175px;
+    margin-top: 175px;
   }
 }
 

@@ -21,10 +21,18 @@ ambient.play()
 
 function Index() {
   const [start, setStart] = useState(false);
+  const [allowEvents, setAllowEvents] = useState(false);
+
   const wallet = "0xa2E15bC8F3885Ac768e17168d2c3E6415eF5565d";
 
   const cubes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const link = "https://chain.link/";
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAllowEvents(true);
+    }, 55000)
+  })
 
   const moon = () => {
     if (!start) {
@@ -46,7 +54,7 @@ function Index() {
           <div className="ready_text">Start</div>
           { start && <div className="quote">It's happening tonight...</div> }
           { start && <div className="together">We are all in this together</div> }
-          { start && <a href={link} className="link">{link}</a> }
+          { start && <a href={link} style={{ pointerEvents: allowEvents ? 'all' : 'none' }} className="link">{link}</a> }
 
           { start && cubes.map((cube, index) => (
             <motion.div
@@ -66,7 +74,7 @@ function Index() {
             <motion.div
               className={`cube`}
               animate={{ y: -900 }} 
-              transition={{ delay: 20, duration: 28 }}>
+              transition={{ delay: 19, duration: 28 }}>
                 <img src={`/main.png`} alt="The God Protocol Cube" />
               <div className="green-candle"></div>
             </motion.div>
