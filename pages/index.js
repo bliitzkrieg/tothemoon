@@ -64,13 +64,7 @@ function Index() {
               className={`cube`}
               animate={{ y: -900 }} 
               transition={{ delay: 18, duration: 28 }}>
-
-              <ReactMotionLoop
-                styleFrom={{ rotate: spring(0) }}
-                styleTo={{ rotate: `${spring(180)}` }}>
-                {style => <img src={`/main.png`} alt="The God Protocol Cube" style={style} />}
-              </ReactMotionLoop>
-
+                <img src={`/main.png`} alt="The God Protocol Cube" />
               <div className="green-candle"></div>
             </motion.div>
           </motion.div>
