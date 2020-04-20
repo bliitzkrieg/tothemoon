@@ -48,16 +48,19 @@ function Index() {
           { start && <div className="together">We are all in this together</div> }
           { start && <a href={link} className="link">{link}</a> }
 
-          {/* { start && cubes.map(cube => (
+          { start && cubes.map((cube, index) => (
             <motion.div
               key={cube}
               className={`floater floater${cube}`}
-              initial={{ y: -200, x: 100 * cube }}
-              animate={{ y: -900, x: 50 * cube }} 
-              transition={{ delay: 2, duration: 28 }}>
+              initial={{ 
+                y: -300 + (index % 2 ? 100 : 0),
+                x: -1500 * cube 
+              }}
+              animate={{ y: -200, x: 5000 }} 
+              transition={{ delay: 45, duration: 28 }}>
                 <img src={`/${cube}.png`} alt="The God Protocol Cube" />
             </motion.div>
-          )) } */}
+          )) }
           
           <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
             <motion.div

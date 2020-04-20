@@ -53,6 +53,7 @@ a {
   margin: 0 50px;
 
   img {
+    animation: rotate 5s linear infinite;
     width: 10vw;
   }
 }
@@ -176,7 +177,7 @@ a {
     text-align: center;
   }
 
-  .cube img {
+  .cube img, .floater img {
     width: 30vw;
     height: 30vw;
   }
@@ -187,7 +188,7 @@ a {
 
   .link {
     font-size: 20px !important;
-    padding-top: 140px;
+    padding-top: 175px;
   }
 }
 
