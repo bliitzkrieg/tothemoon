@@ -29,9 +29,11 @@ function Index() {
   const link = "https://chain.link/";
 
   useEffect(() => {
-    setTimeout(() => {
-      setAllowEvents(true);
-    }, 55000)
+    if (start) {
+      setTimeout(() => {
+        setAllowEvents(true);
+      }, 55000)
+    }
   })
 
   const moon = () => {
