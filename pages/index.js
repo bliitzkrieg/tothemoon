@@ -66,7 +66,7 @@ function Index() {
             <motion.div
               className={`cube`}
               animate={{ y: -900 }} 
-              transition={{ delay: 18, duration: 28 }}>
+              transition={{ delay: 20, duration: 28 }}>
                 <img src={`/main.png`} alt="The God Protocol Cube" />
               <div className="green-candle"></div>
             </motion.div>
