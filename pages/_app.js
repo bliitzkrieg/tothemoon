@@ -7,7 +7,7 @@ export default function MyApp({ Component, pageProps }) {
     <React.Fragment>
       <Head>
         <title>To the moon</title>
-        <meta name="description" content="Too the moon" />
+        <meta name="description" content="To the moon" />
       </Head>
       <div id="stars"></div>
       <div id="stars2"></div>
