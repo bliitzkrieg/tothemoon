@@ -1,10 +1,12 @@
 import Head from 'next/head'
 
-import {Howl, Howler} from 'howler';
+import { Howl } from 'howler';
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion"
-import { ReactMotionLoop } from 'react-motion-loop';
-import { spring } from 'react-motion';
+
+import Wallet from '../components/Wallet';
+import Saturn from '../components/Saturn';
+import Landing from '../components/Landing';
 
 
 const ambient = new Howl({
@@ -20,29 +22,32 @@ ambient.fade(0, 0.1, 1);
 ambient.play()
 
 function Index() {
-  const [start, setStart] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [allowEvents, setAllowEvents] = useState(false);
-
-  const wallet = "0xa2E15bC8F3885Ac768e17168d2c3E6415eF5565d";
 
   const cubes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const link = "https://chain.link/";
 
   useEffect(() => {
-    if (start) {
-      setTimeout(() => {
-        setAllowEvents(true);
-      }, 55000)
+    if (playing) {
+      setTimeout(() => setAllowEvents(true), 55000)
     }
   })
 
   const moon = () => {
-    if (!start) {
+    if (!playing) {
+      main.stop();
       ambient.fade(0.1, 0, 3000)
       main.fade(0, 1, 3000)
       main.play()
-      setStart(true);
+      setPlaying(true);
     }
+  };
+
+  const reset = () => {
+    setPlaying(false)
+    main.fade(1, 0, 6000)
+    ambient.fade(0, 0.1, 6000)
   };
 
   return (
@@ -50,15 +55,26 @@ function Index() {
       <Head>
         <title>To the moon</title>
       </Head>
-      <div className={start ? "start" : ''}>
+      <div className={playing ? "playing" : ''}>
         <div className="moon_container" onClick={moon}>
-          <img src='/chainlink.svg' alt="The God Protocol" className="god_protocol"/>
-          <div className="ready_text">Start</div>
-          { start && <div className="quote">It's happening tonight...</div> }
-          { start && <div className="together">We are all in this together</div> }
-          { start && <a href={link} style={{ pointerEvents: allowEvents ? 'all' : 'none' }} className="link">{link}</a> }
 
-          { start && cubes.map((cube, index) => (
+          <Landing />
+
+          { playing && (
+            <React.Fragment>
+              <Wallet />
+              <Saturn />
+
+              <div className="quote">It's happening tonight...</div>
+              <div className="together">We are all in this together</div>
+              <a href={link} style={{ pointerEvents: allowEvents ? 'all' : 'none' }} className="link">{link}</a>
+
+
+              <div onClick={ reset } className="reset">RESET</div>
+            </React.Fragment>
+          )}
+
+          { playing && cubes.map((cube, index) => (
             <motion.div
               key={cube}
               className={`floater floater${cube}`}
@@ -72,32 +88,18 @@ function Index() {
             </motion.div>
           )) }
           
-          { start && <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
+          
+          { playing && <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
             <motion.div
               className={`cube`}
               animate={{ y: -900 }} 
-              transition={{ delay: 19, duration: 28 }}>
+              transition={{ delay: 18, duration: 25 }}>
                 <img src={`/main.png`} alt="The God Protocol Cube" />
               <div className="green-candle"></div>
             </motion.div>
           </motion.div>
           }
 
-          { start && 
-            <motion.div className="wallet" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 30, duration: 20 }}>
-              {wallet}
-            </motion.div> 
-          }
-
-          { start && 
-            <motion.img 
-              initial={{ x: 1000, y: -800, scale: 1.1 }} 
-              animate={{ x: 500, y: -320, scale: 0.4 }} 
-              transition={{ delay: 30, duration: 20 }}
-              className="saturn" 
-              src="/saturn.png" 
-              alt="saturn" />
-          }
         </div>     
       </div>
     </div>

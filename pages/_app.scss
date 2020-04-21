@@ -58,12 +58,12 @@ a {
   }
 }
 
-.start .ready_text,
-.start .god_protocol {
+.playing .ready_text,
+.playing .god_protocol {
   opacity: 0;
 }
 
-.start .cube_container {
+.playing .cube_container {
   opacity: 1;
 }
 
@@ -73,13 +73,16 @@ a {
   }
 }
 
-
 .cube_container {
   transition: opacity 1s linear;
   opacity: 0;
   position: absolute;
   bottom: -250px;
   display: flex;
+}
+
+.link {
+  font-size: 60px;
 }
 
 .quote, .together {
@@ -94,34 +97,48 @@ a {
   color: white;
 }
 
-.link {
-  font-size: 60px;
+.reset {
+  color: #ffffff36;
+  position: absolute;
+  bottom: 20vh;
+  left: 20vw;
+  font-size: 50px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fade-in 15s linear;
+  animation-fill-mode: forwards;
+  animation-delay: 76000ms;
 }
 
 .wallet {
   position: absolute;
   font-size: 19px;
-  color: white;
+  color: #ffffff36;
   top: 0;
   left: 0;
   padding: 20px;
   z-index: 2;
+  opacity: 0;
+  animation: fade-in 15s linear;
+  animation-fill-mode: forwards;
+  animation-delay: 76000ms;
 }
 
-.start .quote {
+.playing .quote {
   animation: fade-in-out 15s linear;
   animation-fill-mode: forwards;
   animation-delay: 2000ms;
 }
 
-.start .together {
+.playing .together {
   animation: fade-in 5s linear;
   animation-fill-mode: forwards;
   animation-delay: 60s;
   padding-bottom: 180px;
 }
 
-.start .link {
+.playing .link {
   animation: fade-in 5s linear;
   animation-fill-mode: forwards;
   animation-delay: 65s;
