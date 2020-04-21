@@ -223,11 +223,20 @@ a {
   
   .wallet {
     font-size: 14px;
+    bottom: 0;
+    left: 0;
   }
 
   .link {
     font-size: 20px !important;
   }
+
+  .reset {
+    bottom: 5vh;
+    left: 20px;
+    font-size: 20px;
+  }
+
 }
 
 #stars {
