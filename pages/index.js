@@ -72,7 +72,7 @@ function Index() {
             </motion.div>
           )) }
           
-          <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
+          { start && <motion.div className="cube_container" animate={{ scale: 0.4 }} transition={{ delay: 22, duration: 70 }}>
             <motion.div
               className={`cube`}
               animate={{ y: -900 }} 
@@ -81,6 +81,7 @@ function Index() {
               <div className="green-candle"></div>
             </motion.div>
           </motion.div>
+          }
 
           { start && 
             <motion.div className="wallet" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 30, duration: 20 }}>
