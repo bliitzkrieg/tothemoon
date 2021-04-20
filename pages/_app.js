@@ -8,8 +8,8 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>To the moon</title>
         <meta name="description" content="To the moon" />
-        <link rel="prefetch" href="/left.png" />
-        <link rel="prefetch" href="/right.png" />
+        <link rel="prefetch" href="/LEFT.png" />
+        <link rel="prefetch" href="/RIGHT.png" />
         <link rel="prefetch" href="/earth.jpg" />
         <link rel="prefetch" href="/moon.png" />
         <link rel="prefetch" href="/epic_space_music.mp3" />
