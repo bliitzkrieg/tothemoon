@@ -53,11 +53,11 @@ function Index() {
     }
     setMobile(((window.innerWidth <= 800) && (window.innerHeight <= 600)));
     setHeight(window.innerHeight);
-    // window.addEventListener('blur', () => {
-    //   main.stop();
-    //   setPlaying(false);
-    //   ambient.fade(0, 0.1, 6000);
-    // });
+    window.addEventListener('blur', () => {
+      main.stop();
+      setPlaying(false);
+      ambient.fade(0, 0.1, 6000);
+    });
   }, [main]);
 
   return (
